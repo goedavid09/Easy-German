@@ -1,0 +1,1073 @@
+html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>David German Learning App</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #f4f6f9;
+  color: #222;
+}
+
+header {
+  background: #111827;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+nav button {
+  background: none;
+  border: none;
+  color: white;
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+}
+
+.hero {
+  background: linear-gradient(135deg,#2563eb,#7c3aed);
+  color: white;
+  padding: 50px 25px;
+  border-radius: 20px;
+  margin-bottom: 25px;
+}
+
+.hero h1 {
+  font-size: 35px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.btn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.btn:hover {
+  opacity: .85;
+}
+
+.btn-green {
+  background: #16a34a;
+}
+
+.btn-red {
+  background: #dc2626;
+}
+
+.btn-dark {
+  background: #111827;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap: 18px;
+}
+
+.card {
+  background: white;
+  padding: 22px;
+  border-radius: 15px;
+  box-shadow: 0 3px 12px rgba(0,0,0,.08);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+}
+
+.card p {
+  line-height: 1.6;
+  color: #555;
+}
+
+.level {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+section {
+  margin-bottom: 30px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+input, select {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.form-box {
+  max-width: 450px;
+  margin: 30px auto;
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+}
+
+.lesson {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  border-left: 5px solid #2563eb;
+}
+
+.lesson h3 {
+  margin-bottom: 10px;
+}
+
+.translation {
+  background: #f1f5f9;
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.quiz-question {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 12px;
+  margin: 7px 0;
+  background: #f3f4f6;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.option:hover {
+  background: #dbeafe;
+}
+
+.correct {
+  background: #bbf7d0 !important;
+}
+
+.wrong {
+  background: #fecaca !important;
+}
+
+.progress-box {
+  background: #ddd;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 25px;
+  margin: 15px 0;
+}
+
+.progress-bar {
+  background: #16a34a;
+  height: 100%;
+  width: 0%;
+  color: white;
+  text-align: center;
+  line-height: 25px;
+}
+
+footer {
+  background: #111827;
+  color: white;
+  text-align: center;
+  padding: 25px;
+  margin-top: 40px;
+}
+
+@media(max-width:600px) {
+  .hero h1 {
+    font-size: 27px;
+  }
+
+  nav button {
+    font-size: 12px;
+    margin-left: 4px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">🇩🇪 David German Learning</div>
+
+  <nav>
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('courses')">Courses</button>
+    <button onclick="showPage('quiz')">Quiz</button>
+    <button onclick="showPage('dictionary')">Dictionary</button>
+    <button onclick="showPage('profile')">Profile</button>
+  </nav>
+</header>
+
+<main class="container">
+
+<!-- HOME -->
+<div id="home">
+
+<section class="hero">
+  <h1>Learn German 🇩🇪</h1>
+  <p>
+    Learn German from A1 to B2 using German,
+    English and Swahili.
+  </p>
+
+  <button class="btn btn-green" onclick="showPage('courses')">
+    Start Learning
+  </button>
+
+  <button class="btn btn-dark" onclick="showPage('register')">
+    Create Account
+  </button>
+</section>
+
+<section>
+<h2>Why Learn With Us?</h2>
+
+<div class="grid">
+
+<div class="card">
+<div class="level">📚</div>
+<h3>A1–B2 Courses</h3>
+<p>Learn German step by step from beginner to intermediate.</p>
+</div>
+
+<div class="card">
+<div class="level">🎧</div>
+<h3>Pronunciation</h3>
+<p>Practice German words and sentences.</p>
+</div>
+
+<div class="card">
+<div class="level">📝</div>
+<h3>Quizzes</h3>
+<p>Test your German knowledge after every lesson.</p>
+</div>
+
+<div class="card">
+<div class="level">📊</div>
+<h3>Progress</h3>
+<p>Track your learning progress.</p>
+</div>
+
+</div>
+</section>
+
+</div>
+
+
+<!-- COURSES -->
+<div id="courses" class="hidden">
+
+<section>
+<h2>German Courses 🇩🇪</h2>
+<p>Select your level.</p>
+</section>
+
+<div class="grid">
+
+<div class="card">
+<h2>A1</h2>
+<h3>Beginner</h3>
+<p>Alphabet, greetings, numbers, introductions and basic grammar.</p>
+<button class="btn" onclick="openLevel('A1')">Open A1</button>
+</div>
+
+<div class="card">
+<h2>A2</h2>
+<h3>Elementary</h3>
+<p>Daily conversations, past tense, travel and everyday German.</p>
+<button class="btn" onclick="openLevel('A2')">Open A2</button>
+</div>
+
+<div class="card">
+<h2>B1</h2>
+<h3>Intermediate</h3>
+<p>Conversation, opinions, work, travel and advanced grammar.</p>
+<button class="btn" onclick="openLevel('B1')">Open B1</button>
+</div>
+
+<div class="card">
+<h2>B2</h2>
+<h3>Upper Intermediate</h3>
+<p>Complex conversations, writing and advanced vocabulary.</p>
+<button class="btn" onclick="openLevel('B2')">Open B2</button>
+</div>
+
+</div>
+
+<div id="levelContent" style="margin-top:25px;"></div>
+
+</div>
+
+
+<!-- QUIZ -->
+<div id="quiz" class="hidden">
+
+<section>
+<h2>German Quiz 📝</h2>
+<p>Choose the correct answer.</p>
+</section>
+
+<div id="quizContainer"></div>
+
+<button class="btn btn-green" onclick="calculateQuiz()">
+Submit Quiz
+</button>
+
+<h2 id="quizResult"></h2>
+
+</div>
+
+
+<!-- DICTIONARY -->
+<div id="dictionary" class="hidden">
+
+<section>
+<h2>German Dictionary 📖</h2>
+<p>German → English → Swahili</p>
+
+<input
+  type="text"
+  id="searchWord"
+  placeholder="Search German word..."
+  onkeyup="searchDictionary()">
+</section>
+
+<div id="dictionaryList"></div>
+
+</div>
+
+
+<!-- LOGIN -->
+<div id="login" class="hidden">
+
+<div class="form-box">
+
+<h2>Login 👤</h2>
+
+<label>Email</label>
+<input type="email" id="loginEmail">
+
+<label>Password</label>
+<input type="password" id="loginPassword">
+
+<button class="btn" onclick="login()">
+Login
+</button>
+
+<button class="btn btn-dark" onclick="showPage('register')">
+Create Account
+</button>
+
+<p id="loginMessage"></p>
+
+</div>
+
+</div>
+
+
+<!-- REGISTER -->
+<div id="register" class="hidden">
+
+<div class="form-box">
+
+<h2>Create Account 👤</h2>
+
+<label>Full Name</label>
+<input type="text" id="registerName">
+
+<label>Email</label>
+<input type="email" id="registerEmail">
+
+<label>Password</label>
+<input type="password" id="registerPassword">
+
+<button class="btn btn-green" onclick="register()">
+Register
+</button>
+
+<p id="registerMessage"></p>
+
+</div>
+
+</div>
+
+
+<!-- PROFILE -->
+<div id="profile" class="hidden">
+
+<section>
+<h2>My Profile 👤</h2>
+
+<div class="card">
+
+<h3 id="profileName">Guest</h3>
+<p id="profileEmail">Not logged in</p>
+
+<h3 style="margin-top:20px;">Learning Progress</h3>
+
+<div class="progress-box">
+<div id="progressBar" class="progress-bar">0%</div>
+</div>
+
+<p id="progressText">
+0 lessons completed
+</p>
+
+<button class="btn btn-red" onclick="logout()">
+Logout
+</button>
+
+</div>
+
+</section>
+
+</div>
+
+</main>
+
+
+<footer>
+<p>🇩🇪 David German Learning App</p>
+<p>German • English • Swahili</p>
+</footer>
+
+
+<script>
+
+/* =========================
+   PAGE SYSTEM
+========================= */
+
+function showPage(page) {
+
+  const pages = [
+    "home",
+    "courses",
+    "quiz",
+    "dictionary",
+    "login",
+    "register",
+    "profile"
+  ];
+
+  pages.forEach(function(p) {
+    document.getElementById(p).classList.add("hidden");
+  });
+
+  document.getElementById(page).classList.remove("hidden");
+
+  if(page === "dictionary") {
+    displayDictionary();
+  }
+
+  if(page === "profile") {
+    updateProfile();
+  }
+}
+
+
+/* =========================
+   COURSES
+========================= */
+
+const lessons = {
+
+A1: [
+{
+title:"Greetings",
+german:"Hallo! Guten Morgen!",
+english:"Hello! Good morning!",
+swahili:"Habari! Habari za asubuhi?"
+},
+{
+title:"Introduction",
+german:"Ich heiße David.",
+english:"My name is David.",
+swahili:"Jina langu ni David."
+},
+{
+title:"Where are you from?",
+german:"Ich komme aus Kenia.",
+english:"I come from Kenya.",
+swahili:"Ninatoka Kenya."
+},
+{
+title:"How are you?",
+german:"Wie geht es dir?",
+english:"How are you?",
+swahili:"Uko aje?"
+}
+],
+
+A2: [
+{
+title:"Daily Life",
+german:"Ich stehe jeden Morgen um sieben Uhr auf.",
+english:"I get up every morning at seven.",
+swahili:"Ninaamka kila asubuhi saa moja."
+},
+{
+title:"Past",
+german:"Ich habe gestern gearbeitet.",
+english:"I worked yesterday.",
+swahili:"Nilifanya kazi jana."
+}
+],
+
+B1: [
+{
+title:"Opinion",
+german:"Meiner Meinung nach ist Deutsch eine wichtige Sprache.",
+english:"In my opinion, German is an important language.",
+swahili:"Kwa maoni yangu, Kijerumani ni lugha muhimu."
+},
+{
+title:"Travel",
+german:"Ich möchte nächstes Jahr nach Deutschland reisen.",
+english:"I would like to travel to Germany next year.",
+swahili:"Ningependa kusafiri kwenda Ujerumani mwaka ujao."
+}
+],
+
+B2: [
+{
+title:"Discussion",
+german:"Ich bin davon überzeugt, dass Sprachen neue Möglichkeiten eröffnen.",
+english:"I am convinced that languages open new opportunities.",
+swahili:"Ninaamini kwamba lugha hufungua fursa mpya."
+},
+{
+title:"Education",
+german:"Eine gute Ausbildung kann die beruflichen Chancen verbessern.",
+english:"A good education can improve career opportunities.",
+swahili:"Elimu nzuri inaweza kuboresha nafasi za kazi."
+}
+]
+
+};
+
+
+function openLevel(level) {
+
+  const content = document.getElementById("levelContent");
+
+  content.innerHTML = `
+  <h2>${level} Lessons</h2>
+  `;
+
+  lessons[level].forEach(function(lesson,index) {
+
+    content.innerHTML += `
+    <div class="lesson">
+
+      <h3>${index+1}. ${lesson.title}</h3>
+
+      <p><strong>🇩🇪 German:</strong><br>
+      ${lesson.german}</p>
+
+      <div class="translation">
+      <strong>🇬🇧 English:</strong><br>
+      ${lesson.english}
+      </div>
+
+      <div class="translation">
+      <strong>🇰🇪 Swahili:</strong><br>
+      ${lesson.swahili}
+      </div>
+
+      <button
+        class="btn btn-green"
+        onclick="completeLesson()">
+        ✓ Mark Complete
+      </button>
+
+    </div>
+    `;
+  });
+}
+
+
+function completeLesson() {
+
+  let completed =
+    Number(localStorage.getItem("completedLessons") || 0);
+
+  completed++;
+
+  localStorage.setItem("completedLessons", completed);
+
+  alert("Lesson completed! ✅");
+
+  updateProfile();
+}
+
+
+/* =========================
+   QUIZ
+========================= */
+
+const questions = [
+
+{
+question:"What does 'Hallo' mean?",
+options:["Goodbye","Hello","Thank you","Please"],
+answer:"Hello"
+},
+
+{
+question:"What does 'Danke' mean?",
+options:["Hello","Goodbye","Thank you","Yes"],
+answer:"Thank you"
+},
+
+{
+question:"'Ich heiße David' means:",
+options:[
+"My name is David",
+"I live in David",
+"I like David",
+"I am from David"
+],
+answer:"My name is David"
+},
+
+{
+question:"What does 'Guten Morgen' mean?",
+options:[
+"Good night",
+"Good morning",
+"Good afternoon",
+"Goodbye"
+],
+answer:"Good morning"
+},
+
+{
+question:"'Ich komme aus Kenia' means:",
+options:[
+"I live in Germany",
+"I come from Kenya",
+"I work in Kenya",
+"I speak Kenya"
+],
+answer:"I come from Kenya"
+}
+
+];
+
+
+function loadQuiz() {
+
+  const container =
+    document.getElementById("quizContainer");
+
+  container.innerHTML = "";
+
+  questions.forEach(function(q,index) {
+
+    let html = `
+    <div class="quiz-question">
+
+    <h3>${index+1}. ${q.question}</h3>
+    `;
+
+    q.options.forEach(function(option) {
+
+      html += `
+      <button
+      class="option"
+      data-question="${index}"
+      data-answer="${option}"
+      onclick="selectAnswer(this)">
+      ${option}
+      </button>
+      `;
+    });
+
+    html += `</div>`;
+
+    container.innerHTML += html;
+  });
+}
+
+
+function selectAnswer(button) {
+
+  const question =
+    button.dataset.question;
+
+  document
+    .querySelectorAll(
+      `[data-question="${question}"]`
+    )
+    .forEach(function(btn) {
+      btn.classList.remove("correct","wrong");
+    });
+
+  button.classList.add("correct");
+
+  button.parentElement.dataset.selected =
+    button.dataset.answer;
+}
+
+
+function calculateQuiz() {
+
+  let score = 0;
+
+  const boxes =
+    document.querySelectorAll(".quiz-question");
+
+  boxes.forEach(function(box,index) {
+
+    const selected =
+      box.dataset.selected;
+
+    if(selected === questions[index].answer) {
+      score++;
+    }
+
+  });
+
+  const percentage =
+    Math.round((score/questions.length)*100);
+
+  document.getElementById("quizResult").innerHTML =
+    `Your score: ${score}/${questions.length}
+     (${percentage}%)`;
+
+  localStorage.setItem("quizScore",percentage);
+}
+
+
+/* =========================
+   DICTIONARY
+========================= */
+
+const dictionary = [
+
+{
+german:"Hallo",
+english:"Hello",
+swahili:"Habari"
+},
+
+{
+german:"Danke",
+english:"Thank you",
+swahili:"Asante"
+},
+
+{
+german:"Bitte",
+english:"Please / You're welcome",
+swahili:"Tafadhali / Karibu"
+},
+
+{
+german:"Ja",
+english:"Yes",
+swahili:"Ndiyo"
+},
+
+{
+german:"Nein",
+english:"No",
+swahili:"Hapana"
+},
+
+{
+german:"Wasser",
+english:"Water",
+swahili:"Maji"
+},
+
+{
+german:"Haus",
+english:"House",
+swahili:"Nyumba"
+},
+
+{
+german:"Schule",
+english:"School",
+swahili:"Shule"
+},
+
+{
+german:"Arbeit",
+english:"Work",
+swahili:"Kazi"
+},
+
+{
+german:"Freund",
+english:"Friend",
+swahili:"Rafiki"
+},
+
+{
+german:"Essen",
+english:"Food",
+swahili:"Chakula"
+},
+
+{
+german:"Reisen",
+english:"To travel",
+swahili:"Kusafiri"
+}
+
+];
+
+
+function displayDictionary(list=dictionary) {
+
+  const container =
+    document.getElementById("dictionaryList");
+
+  container.innerHTML = "";
+
+  list.forEach(function(word) {
+
+    container.innerHTML += `
+    <div class="card" style="margin-bottom:12px">
+
+    <h3>🇩🇪 ${word.german}</h3>
+
+    <p>
+    🇬🇧 ${word.english}
+    </p>
+
+    <p>
+    🇰🇪 ${word.swahili}
+    </p>
+
+    </div>
+    `;
+  });
+}
+
+
+function searchDictionary() {
+
+  const search =
+    document
+    .getElementById("searchWord")
+    .value
+    .toLowerCase();
+
+  const results =
+    dictionary.filter(function(word) {
+
+      return word.german
+        .toLowerCase()
+        .includes(search);
+
+    });
+
+  displayDictionary(results);
+}
+
+
+/* =========================
+   REGISTER
+========================= */
+
+function register() {
+
+  const name =
+    document.getElementById("registerName").value;
+
+  const email =
+    document.getElementById("registerEmail").value;
+
+  const password =
+    document.getElementById("registerPassword").value;
+
+  if(!name || !email || !password) {
+
+    document.getElementById("registerMessage")
+    .innerText =
+    "Please fill all fields.";
+
+    return;
+  }
+
+  const user = {
+    name:name,
+    email:email,
+    password:password
+  };
+
+  localStorage.setItem(
+    "user",
+    JSON.stringify(user)
+  );
+
+  alert("Account created successfully!");
+
+  showPage("login");
+}
+
+
+/* =========================
+   LOGIN
+========================= */
+
+function login() {
+
+  const email =
+    document.getElementById("loginEmail").value;
+
+  const password =
+    document.getElementById("loginPassword").value;
+
+  const user =
+    JSON.parse(localStorage.getItem("user"));
+
+  if(!user) {
+
+    document.getElementById("loginMessage")
+    .innerText =
+    "No account found. Please register first.";
+
+    return;
+  }
+
+  if(
+    email === user.email &&
+    password === user.password
+  ) {
+
+    localStorage.setItem("loggedIn","true");
+
+    alert("Login successful!");
+
+    showPage("profile");
+
+  } else {
+
+    document.getElementById("loginMessage")
+    .innerText =
+    "Wrong email or password.";
+
+  }
+}
+
+
+/* =========================
+   PROFILE
+========================= */
+
+function updateProfile() {
+
+  const user =
+    JSON.parse(localStorage.getItem("user"));
+
+  const completed =
+    Number(localStorage.getItem("completedLessons") || 0);
+
+  const progress =
+    Math.min(completed * 10,100);
+
+  if(user) {
+
+    document.getElementById("profileName")
+      .innerText = user.name;
+
+    document.getElementById("profileEmail")
+      .innerText = user.email;
+
+  }
+
+  document.getElementById("progressBar")
+    .style.width = progress + "%";
+
+  document.getElementById("progressBar")
+    .innerText = progress + "%";
+
+  document.getElementById("progressText")
+    .innerText =
+    completed + " lessons completed";
+}
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+function logout() {
+
+  localStorage.removeItem("loggedIn");
+
+  alert("Logged out.");
+
+  showPage("home");
+}
+
+
+/* =========================
+   START APP
+========================= */
+
+loadQuiz();
+
+showPage("home");
+
+</script>
+
+</body>
+</html>
+Ndiyo. Hii ni complete demo code ya app ya masomo yenye Home, Login/Register, A1–B2, lessons, quiz, progress, dictionary na profile. Unaweza kuiweka moja kwa moja kwenye GitHub.
+1. Tengeneza file index.html
+Copy code yote hapa chini uweke ndani ya index.html:
+HTML
